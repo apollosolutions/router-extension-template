@@ -1,4 +1,4 @@
-use anyhow::{ensure, Context, Result};
+use anyhow::Result;
 use apollo_router::configuration::Configuration;
 use apollo_router::{ApolloRouterBuilder, GLOBAL_ENV_FILTER};
 use apollo_router::{ConfigurationKind, SchemaKind, ShutdownKind, State};
@@ -21,6 +21,7 @@ struct Args {
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    lib::register_plugins();
     let args: Args = Args::parse();
     let filter_level = args.log_level.to_string();
     let env_filter = tracing_subscriber::EnvFilter::try_new(&filter_level).unwrap();
@@ -45,7 +46,7 @@ async fn main() -> Result<()> {
                 p.to_path_buf()
             };
 
-            tracing::info!("Router Config Path: {:?}", p);
+            tracing::debug!("Router Config Path: {:?}", p);
 
             ConfigurationKind::File {
                 path: p,
@@ -65,7 +66,7 @@ async fn main() -> Result<()> {
                 p.to_path_buf()
             };
 
-            tracing::info!("Supergraph Schema Path: {:?}", p);
+            tracing::debug!("Supergraph Schema Path: {:?}", p);
 
             SchemaKind::File {
                 path: p,

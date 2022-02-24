@@ -3,3 +3,7 @@ server:
     origins:
       - https://studio.apollographql.com
       - http://localhost
+
+plugins:
+  apollo.solutions.hello-world:
+    name: Michael
