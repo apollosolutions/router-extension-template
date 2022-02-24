@@ -21,7 +21,9 @@ struct Args {
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    lib::register_layers();
     lib::register_plugins();
+
     let args: Args = Args::parse();
     let filter_level = args.log_level.to_string();
     let env_filter = tracing_subscriber::EnvFilter::try_new(&filter_level).unwrap();

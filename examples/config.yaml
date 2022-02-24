@@ -5,5 +5,5 @@ server:
       - http://localhost
 
 plugins:
-  apollo.solutions.hello-world:
-    name: Michael
+  apollo.solutions.metadata-validation:
+    name: Enforce Operation Name
