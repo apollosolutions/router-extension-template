@@ -3,6 +3,7 @@
 name = "router-extension-template"
 version = "0.1.0"
 edition = "2021"
+license = "Elastic-2.0"
 
 [workspace]
 members = [
