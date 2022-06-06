@@ -1,9 +1,0 @@
-server:
-  cors:
-    origins:
-      - https://studio.apollographql.com
-      - http://localhost
-
-plugins:
-  apollo.solutions.metadata-validation:
-    name: Enforce Operation Name
